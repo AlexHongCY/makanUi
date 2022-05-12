@@ -18,9 +18,9 @@ import {
   Switch, 
   Route,
   Link,
-  withRouter,
  } from 'react-router-dom';
  import FoodDeals from './components/FoodDeals';
+ import SearchResults from './components/results';
 
 
 function App() {
@@ -42,6 +42,9 @@ function App() {
       <Switch>
         <Route path="/FoodDeals">
           <FoodDeals />
+        </Route>
+        <Route path="/SearchRes">
+          <SearchResults />
         </Route>
       </Switch>
     </div>
@@ -158,10 +161,61 @@ function DropDownMenu(){
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
           </DropdownItem>
-          <DropdownItem leftIcon={<PriceIcon />}>Price</DropdownItem>
-          <DropdownItem leftIcon={<LocationIcon />}>Location</DropdownItem>
-          <DropdownItem leftIcon={<CuisineIcon />}>Cuisine</DropdownItem>
-          <DropdownItem leftIcon={<RatingIcon />}>Rating</DropdownItem>
+          <DropdownItem leftIcon={<PriceIcon />}>    
+          <p>
+            Price:
+            <select id="price" class="select">
+            <option disabled selected></option>
+            <option value="$">$</option>
+            <option value="$$">$$</option>
+            <option value="$$$">$$$</option>
+            <option value="$$$$">$$$$</option>
+            <option value="$$$$$">$$$$$</option>
+            </select>
+          </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<LocationIcon />}>
+          <p>
+            Location:
+            <select id="location" class="select">
+            <option disabled selected></option>
+            <option value="Anywhere">Anywhere</option>
+            <option value="North">North</option>
+            <option value="Central">Central</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+            <option value="Neast">North East</option>
+            </select>
+          </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<CuisineIcon />}>
+          <p>
+            Cuisine:
+            <select id="cuisine" class="select">
+            <option disabled selected></option>
+            <option value="Western">Western</option>
+            <option value="Muslim">Muslim</option>
+            <option value="Indian">Indian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Thai">Thai</option>
+            <option value="Korean">Korean</option>
+            </select>
+          </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<RatingIcon />}>
+          <p>
+            Rating:
+            <select id="rating" class="select">
+            <option disabled selected></option>
+            <option value="*">Any rating</option>
+            <option value="**">** and above</option>
+            <option value="***">*** and above</option>
+            <option value="****">**** and above</option>
+            <option value="*****">*****</option>
+            </select>
+          </p>
+          </DropdownItem>
+          <button className='searchbutton' >Search</button>
         </div>
       </CSSTransition>
     </div>

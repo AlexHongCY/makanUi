@@ -61,7 +61,12 @@ h1 {
 .content {
   width: 0px;
 }
-  
+
+.searchbutton {
+  margin-top: 20px;
+  margin-left: 40%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .food {
   padding: 5px;
 }
