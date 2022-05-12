@@ -10,22 +10,42 @@ import { ReactComponent as PriceIcon } from "./icons/price.svg";
 import { ReactComponent as LocationIcon } from "./icons/location.svg";
 import { ReactComponent as CuisineIcon } from "./icons/cuisine.svg";
 import { ReactComponent as RatingIcon } from "./icons/rating.svg";
+import { ReactComponent as UserIcon } from "./icons/user.svg";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import FoodDeals from "./components/FoodDeals";
+import SearchResults from "./components/results";
 
 function App() {
   return (
-    <>
-      <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
+    <div>
       <Navbar>
+        <NavItem icon={<UserIcon />} />
+        <button className="logIn">Log In</button>
         <NavItem icon={<CaretIcon />}>
           <DropDownMenu></DropDownMenu>
         </NavItem>
       </Navbar>
-      <div className="topTitle">
-        <h1>Deals of the week</h1>
-      </div>
-    </>
+      <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
+      <Router>
+        <h2>
+          <Link to="/FoodDeals" className="links">
+            Food Deals
+          </Link>
+        </h2>
+        <div className="content">
+          <Switch>
+            <Route path="/FoodDeals">
+              <FoodDeals />
+            </Route>
+            <Route path="/SearchRes">
+              <SearchResults />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
   );
 }
 
@@ -121,7 +141,7 @@ function DropDownMenu() {
       >
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>My Tutorial</h2>
+            <h2>Complaints</h2>
           </DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>Module</DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>3</DropdownItem>
@@ -139,10 +159,61 @@ function DropDownMenu() {
       >
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}></DropdownItem>
-          <DropdownItem leftIcon={<PriceIcon />}>Price</DropdownItem>
-          <DropdownItem leftIcon={<LocationIcon />}>Location</DropdownItem>
-          <DropdownItem leftIcon={<CuisineIcon />}>Cuisine</DropdownItem>
-          <DropdownItem leftIcon={<RatingIcon />}>Rating</DropdownItem>
+          <DropdownItem leftIcon={<PriceIcon />}>
+            <p>
+              Price:
+              <select id="price" class="select">
+                <option disabled selected></option>
+                <option value="$">$</option>
+                <option value="$$">$$</option>
+                <option value="$$$">$$$</option>
+                <option value="$$$$">$$$$</option>
+                <option value="$$$$$">$$$$$</option>
+              </select>
+            </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<LocationIcon />}>
+            <p>
+              Location:
+              <select id="location" class="select">
+                <option disabled selected></option>
+                <option value="Anywhere">Anywhere</option>
+                <option value="North">North</option>
+                <option value="Central">Central</option>
+                <option value="East">East</option>
+                <option value="West">West</option>
+                <option value="Neast">North East</option>
+              </select>
+            </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<CuisineIcon />}>
+            <p>
+              Cuisine:
+              <select id="cuisine" class="select">
+                <option disabled selected></option>
+                <option value="Western">Western</option>
+                <option value="Muslim">Muslim</option>
+                <option value="Indian">Indian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Thai">Thai</option>
+                <option value="Korean">Korean</option>
+              </select>
+            </p>
+          </DropdownItem>
+          <DropdownItem leftIcon={<RatingIcon />}>
+            <p>
+              Rating:
+              <select id="rating" class="select">
+                <option disabled selected></option>
+                <option value="*">Any rating</option>
+                <option value="**">** and above</option>
+                <option value="***">*** and above</option>
+                <option value="****">**** and above</option>
+                <option value="*****">*****</option>
+              </select>
+            </p>
+          </DropdownItem>
+          <button className="searchbutton">Search</button>
         </div>
       </CSSTransition>
     </div>
