@@ -10,14 +10,14 @@ function LoginSignup() {
     });
   }
   return (
-    <>
+    <h4 className="loginBox">
       <input type="text" placeholder="Username"></input>
       <input type="text" placeholder="Email"></input>
       <input type="text" placeholder="Password"></input>
-      <button type="submit" onClick={onSubmit()}>
+      <button className="submitbutton" type="submit" onClick={onSubmit()}>
         Submit
       </button>
-    </>
+    </h4>
   );
 }
 

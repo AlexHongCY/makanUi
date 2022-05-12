@@ -78,13 +78,58 @@ h1 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+.loginBox {
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255, 0.72);
+  width: 1000px;
+  height: 200px;
+  padding: 20px;
+  margin-left: 170px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 350px;
+  grid-template-rows: 30px 30px 30px 100px;
+  gap: 10px 10px;
+  grid-template-areas:
+    "."
+    "."
+    "."
+    ".";
+}
+
+.submitbutton {
+  background-color: rgb(223, 102, 177, 0.7);
+  color: white;
+  border-radius: 7px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
 h2 {
   background-color: rgb(255, 255, 255, 0.88);
   color: black;
-  width: 300px;
+  width: 170px;
   text-align: center;
   margin-left: 300px;
+  margin-top: -101px;
+  border-color: rgb(97, 91, 92);
+  border-radius: 8px;
+  border-style: groove;
+  padding: 5px;
+  font-size: 16px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h3 {
+  background-color: rgb(255, 255, 255, 0.88);
+  color: black;
+  width: 170px;
+  text-align: center;
+  margin-left: 520px;
   margin-top: -20px;
+  margin-bottom: 70px;
   border-color: rgb(97, 91, 92);
   border-radius: 8px;
   border-style: groove;
@@ -165,6 +210,8 @@ a {
   border-radius: var(--border-radius);
   padding: 1rem;
   overflow: hidden;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .menu-item {
