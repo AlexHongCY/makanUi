@@ -16,13 +16,13 @@ import { CSSTransition } from "react-transition-group";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import FoodDeals from "./components/FoodDeals";
 import SearchResults from "./components/results";
+import LoginSignup from "./components/LoginSignup";
 
 function App() {
   return (
     <div>
       <Navbar>
         <NavItem icon={<UserIcon />} />
-        <button className="logIn">Log In</button>
         <NavItem icon={<CaretIcon />}>
           <DropDownMenu></DropDownMenu>
         </NavItem>
@@ -34,6 +34,11 @@ function App() {
             Food Deals
           </Link>
         </h2>
+        <h2>
+          <Link to="/Login" className="links1">
+            Login
+          </Link>
+        </h2>
         <div className="content">
           <Switch>
             <Route path="/FoodDeals">
@@ -41,6 +46,9 @@ function App() {
             </Route>
             <Route path="/SearchRes">
               <SearchResults />
+            </Route>
+            <Route path="/Login">
+              <LoginSignup />
             </Route>
           </Switch>
         </div>
