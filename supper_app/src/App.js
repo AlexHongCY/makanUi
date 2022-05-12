@@ -10,20 +10,43 @@ import { ReactComponent as PriceIcon } from './icons/price.svg';
 import { ReactComponent as LocationIcon } from './icons/location.svg';
 import { ReactComponent as CuisineIcon } from './icons/cuisine.svg';
 import { ReactComponent as RatingIcon } from './icons/rating.svg';
+import { ReactComponent as UserIcon } from './icons/user.svg';
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import {
+  BrowserRouter as Router,
+  Switch, 
+  Route,
+  Link,
+  withRouter,
+ } from 'react-router-dom';
+ import FoodDeals from './components/FoodDeals';
+
 
 function App() {
   return (
-    <>
-    <img src={require('./Assets/Logo.png')} className="logo" alt="Logo"/>
+    <div>
     <Navbar>
+      <NavItem icon={<UserIcon />} />
+      <button className='logIn'>Log In</button>
       <NavItem icon={<CaretIcon />} >
         <DropDownMenu></DropDownMenu>
       </NavItem>
     </Navbar>
-    <h1>Deals of the week</h1>
-    </>
+    <img src={require('./Assets/Logo.png')} className="logo" alt="Logo"/>
+    <Router>
+    <h2>
+        <Link to="/FoodDeals" className='links'>Food Deals</Link>
+    </h2>
+    <div className="content">
+      <Switch>
+        <Route path="/FoodDeals">
+          <FoodDeals />
+        </Route>
+      </Switch>
+    </div>
+    </Router>
+    </div>
   );
 }
 
@@ -117,7 +140,7 @@ function DropDownMenu(){
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>My Tutorial</h2>
+            <h2>Complaints</h2>
           </DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>Module</DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>3</DropdownItem>
