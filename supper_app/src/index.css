@@ -1,4 +1,4 @@
-:root{
+:root {
   --bg: rgba(104, 77, 103, 0.9);
   --bg-accent: #484a4d;
   --text-color: #dadce1;
@@ -11,7 +11,7 @@
   height: 100px;
   left: 0;
   bottom: -10px;
-  background-color: rgb(255, 255, 255, 0.70);
+  background-color: rgb(255, 255, 255, 0.7);
   border-radius: 15px;
   margin-left: 30px;
   margin-bottom: 40px;
@@ -23,10 +23,10 @@
   height: 30px;
   margin-right: 85%;
   margin-top: 16px;
-  background-color:rgb(223, 102, 177) ;
+  background-color: rgb(223, 102, 177);
   border-style: none;
   color: white;
-  float:right ;
+  float: right;
   border-radius: 8px;
   margin-left: 5px;
   padding: 5px;
@@ -49,9 +49,9 @@ h1 {
   gap: 5px 8px;
   grid-auto-flow: row;
   grid-template-areas:
-      ". . . ."
-      ". . . ."
-      ". . . .";
+    ". . . ."
+    ". . . ."
+    ". . . .";
 }
 
 .links {
@@ -65,7 +65,8 @@ h1 {
 .searchbutton {
   margin-top: 20px;
   margin-left: 40%;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .food {
   padding: 5px;
@@ -73,7 +74,8 @@ h1 {
 
 .description {
   font-size: 14px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 h2 {
@@ -85,27 +87,24 @@ h2 {
   margin-top: -20px;
   border-color: rgb(97, 91, 92);
   border-radius: 8px;
-  border-style:groove;
+  border-style: groove;
   padding: 5px;
   font-size: 16px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 div {
-  background:
-    linear-gradient(
-      rgba(78, 51, 115, 0.45),
-      rgba(78, 51, 115, 0.45)
-    ),
-     url("./Assets/Bg.jpg");
-  background-position:center;
+  background: linear-gradient(rgba(78, 51, 115, 0.45), rgba(78, 51, 115, 0.45)),
+    url("./Assets/Bg.jpg");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   width: auto;
-  height: 140vh;
+  height: 1500px;
 }
 
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -137,7 +136,7 @@ a {
   justify-content: center;
 }
 
-.icon-button{
+.icon-button {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
@@ -182,7 +181,7 @@ a {
 }
 
 .icon-right {
-  margin-left:auto;
+  margin-left: auto;
 }
 
 .menu {
@@ -194,16 +193,16 @@ a {
   transform: translateX(-110%);
 }
 
-.menu-primary-enter-active{
+.menu-primary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-primary-exit{
+.menu-primary-exit {
   position: absolute;
 }
 
-.menu-primary-exit-active{
+.menu-primary-exit-active {
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
@@ -212,12 +211,12 @@ a {
   transform: translateX(110%);
 }
 
-.menu-secondary-enter-active{
+.menu-secondary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-secondary-exit-active{
+.menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
