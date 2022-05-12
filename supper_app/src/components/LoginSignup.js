@@ -4,9 +4,9 @@ import axios from "axios";
 function LoginSignup() {
   function onSubmit() {
     axios.post("https://gentle-fortress-35413.herokuapp.com/api/auth/signup", {
-      username: "",
-      email: "",
-      password: "",
+      username: "group1",
+      email: "group1@gmail.com",
+      password: "12345",
     });
   }
   return (
