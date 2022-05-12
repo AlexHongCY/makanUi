@@ -1,4 +1,4 @@
-:root{
+:root {
   --bg: rgba(104, 77, 103, 0.5);
   --bg-accent: #484a4d;
   --text-color: #dadce1;
@@ -9,7 +9,7 @@
 
 .logo {
   height: 200px;
-  position:fixed;
+  position: fixed;
   left: 0;
   top: 0;
 }
@@ -17,27 +17,23 @@
 h1 {
   background-color: white;
   color: black;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 1400px;
 }
 
 div {
-  background:
-    linear-gradient(
-      rgba(78, 51, 115, 0.45),
-      rgba(78, 51, 115, 0.45)
-    ),
-     url("./Assets/Bg.jpg");
-  background-position:center;
+  background: linear-gradient(rgba(78, 51, 115, 0.45), rgba(78, 51, 115, 0.45)),
+    url("./Assets/Bg.jpg");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   width: auto;
-  height: 140vh;
+  height: 1500px;
 }
 
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -69,7 +65,7 @@ a {
   justify-content: center;
 }
 
-.icon-button{
+.icon-button {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
@@ -114,7 +110,7 @@ a {
 }
 
 .icon-right {
-  margin-left:auto;
+  margin-left: auto;
 }
 
 .menu {
@@ -126,16 +122,16 @@ a {
   transform: translateX(-110%);
 }
 
-.menu-primary-enter-active{
+.menu-primary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-primary-exit{
+.menu-primary-exit {
   position: absolute;
 }
 
-.menu-primary-exit-active{
+.menu-primary-exit-active {
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
@@ -144,15 +140,15 @@ a {
   transform: translateX(110%);
 }
 
-.menu-secondary-enter-active{
+.menu-secondary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-secondary-exit{
+.menu-secondary-exit {
 }
 
-.menu-secondary-exit-active{
+.menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
