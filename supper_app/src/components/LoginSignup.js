@@ -9,6 +9,7 @@ function LoginSignup() {
       password: "12345",
     });
   }
+  //require a useState to capture username, email and password.
   return (
     <>
       <input type="text" placeholder="Username"></input>
