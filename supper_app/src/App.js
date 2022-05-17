@@ -29,26 +29,26 @@ function App() {
       </Navbar>
       <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
       <Router>
+      <h3>
+          <Link to="/Login" className="links">
+            Login
+          </Link>
+        </h3>
         <h2>
           <Link to="/FoodDeals" className="links">
             Food Deals
           </Link>
         </h2>
-        <h2>
-          <Link to="/Login" className="links1">
-            Login
-          </Link>
-        </h2>
         <div className="content">
           <Switch>
+            <Route path="/Login">
+              <LoginSignup />
+              </Route>
             <Route path="/FoodDeals">
               <FoodDeals />
             </Route>
             <Route path="/SearchRes">
               <SearchResults />
-            </Route>
-            <Route path="/Login">
-              <LoginSignup />
             </Route>
           </Switch>
         </div>
