@@ -1,41 +1,56 @@
-import React from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
+//import axios from "axios";
 
-function LoginSignup() {
-  function onSubmit() {
-    axios.post("https://gentle-fortress-35413.herokuapp.com/api/auth/signup", {
-      username: "group1",
-      email: "group1@gmail.com",
-      password: "12345",
-    });
-  }
-  //require a useState to capture username, email and password.
-  return (
-    <h4 className="loginBox">
-      <input type="text" placeholder="Username"></input>
-      <input type="text" placeholder="Email"></input>
-      <input type="text" placeholder="Password"></input>
-      <button className="submitbutton" type="submit" onClick={onSubmit()}>
-        Submit
-      </button>
-    </h4>
-  );
+// function LoginSignup() {
+//   function onSubmit() {
+//     axios.post("https://gentle-fortress-35413.herokuapp.com/api/auth/signup", {
+//       username: "group1",
+//       email: "group1@gmail.com",
+//       password: "12345",
+//     });
+//   }
+//   //require a useState to capture username, email and password.
+//   return (
+//     <h4 className="loginBox">
+//       <input type="text" placeholder="Username"></input>
+//       <input type="text" placeholder="Email"></input>
+//       <input type="text" placeholder="Password"></input>
+//       <button className="submitbutton" type="submit" onClick={onSubmit()}>
+//         Submit
+//       </button>
+//     </h4>
+//   );
+// }
+
+// export default LoginSignup;
+
+async function loginUser(credentials) {
+  return fetch("https://gentle-fortress-35413.herokuapp.com/api/auth/signup", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json())
 }
 
-export default LoginSignup;
+const LoginSignup = (setToken) => {
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-// const LoginSignup = () => {
-//   const [formValue, setformValue] = React.useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//   });
 
-//   const handleSubmit = async () => {
-//     const loginFormData = newFormData();
-//     loginFormData.append("username", formvalue.username);
-//     loginFormData.append("email", formValue.email);
-//     loginFormData.append("password", formValue.password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = await loginUser({
+      username,
+      email,
+      password
+    });
+    setToken(token);
+  }
 
 //     try {
 //       const response = await axios({
@@ -57,35 +72,35 @@ export default LoginSignup;
 //   };
 
 //   //require a useState to capture username, email and password.
-//   return (
-//     <h4 className="loginBox">
-//       <form onSubmit={handleSubmit}>
-//         <p>Login</p>
-//         <input
-//           type="text"
-//           name="username"
-//           placeholder="enter a username"
-//           value={formValue.username}
-//           onChange={handleChange}
-//         />
-//         <input
-//           type="text"
-//           name="email"
-//           placeholder="enter a email"
-//           value={formValue.email}
-//           onChange={handleChange}
-//         />
-//         <input
-//           type="text"
-//           name="password"
-//           placeholder="enter a password"
-//           value={formValue.password}
-//           onChange={handleChange}
-//         />
-//         <button type="submit">Submit</button>
-//       </form>
-//     </h4>
-//   );
-// };
+  return (
+    <h4 className="loginBox">
+      <form onSubmit={handleSubmit}>
+        <p>Login</p>
+        <input
+          type="text"
+          name="username"
+          placeholder="enter a username"
+          onChange={e => setUsername(e.target.value)}
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="enter a email"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          name="password"
+          placeholder="enter a password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </h4>
+  );
+};
+LoginSignup.propTypes = {
+  setToken: PropTypes.func.isRequired
+}
 
-// export default LoginSignup;
+export default LoginSignup;

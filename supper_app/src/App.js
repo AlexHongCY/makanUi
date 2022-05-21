@@ -17,8 +17,17 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import FoodDeals from "./components/FoodDeals";
 import SearchResults from "./components/results";
 import LoginSignup from "./components/LoginSignup";
+import useToken from "./components/App/useToken";
+
+
 
 function App() {
+  const {token, setToken} = useToken();
+
+  if(!token) {
+    return<LoginSignup setToken={setToken} />
+  }
+
   return (
     <div>
       <Navbar>
@@ -29,11 +38,11 @@ function App() {
       </Navbar>
       <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
       <Router>
-      <h3>
+      {/* <h3>
           <Link to="/Login" className="links">
             Login
           </Link>
-        </h3>
+        </h3> */}
         <h2>
           <Link to="/FoodDeals" className="links">
             Food Deals
@@ -41,9 +50,9 @@ function App() {
         </h2>
         <div className="content">
           <Switch>
-            <Route path="/Login">
+            {/* <Route path="/Login">
               <LoginSignup />
-              </Route>
+              </Route> */}
             <Route path="/FoodDeals">
               <FoodDeals />
             </Route>
