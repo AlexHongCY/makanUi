@@ -1,7 +1,8 @@
 import React from "react";
 
-function FoodDeals() {
+const FoodDeals = () => {
   return (
+    
     <h1>
     <img src={require('../Assets/mee siam.webp')} className="food" alt="meesiam" width="190px" height="140px" />
     <p className='description'>Mee Siam Palace offering 30% off AND free delivery on weekdays from 12pm - 2pm.</p>
@@ -16,6 +17,8 @@ function FoodDeals() {
     <img src={require('../Assets/lemak.jpeg')} className="food" alt="Nasi lemak" width="190px" height="140px"/>
     <p className='description'>Bapak lemak introduces salted egg wings with a get 5 free 2 deal!</p>
     </h1>
-  )
+
+
+  );
 }
 export default FoodDeals;

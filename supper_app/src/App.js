@@ -18,15 +18,35 @@ import FoodDeals from "./components/FoodDeals";
 import SearchResults from "./components/results";
 import LoginSignup from "./components/LoginSignup";
 import useToken from "./components/App/useToken";
+import API from "./screens/API";
+import Restaurants from "./components/locationAll";
 
 
 
 function App() {
+
+  const [location, setLocation] = useState([]);
+
+  const getLocation = async() => {
+    const res = await API.get("/public/location");
+
+    if(res.status === 200) {
+      console.log(res);
+      setLocation(res.data);
+    }
+  }
+
+  useEffect(()=> {
+    getLocation();
+  }, []);
+
   const {token, setToken} = useToken();
 
   if(!token) {
-    return<LoginSignup setToken={setToken} />
-  }
+    
+  
+
+
 
   return (
     <div>
@@ -38,23 +58,33 @@ function App() {
       </Navbar>
       <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
       <Router>
-      {/* <h3>
+      <h2>
           <Link to="/Login" className="links">
             Login
           </Link>
-        </h3> */}
+        </h2>
         <h2>
           <Link to="/FoodDeals" className="links">
             Food Deals
           </Link>
         </h2>
+        <h2>
+          <Link to="/Restaurants" className="links">
+            Restaurants
+          </Link>
+        </h2>
+
+
         <div className="content">
           <Switch>
-            {/* <Route path="/Login">
-              <LoginSignup />
-              </Route> */}
+            <Route path="/Login">
+              <LoginSignup  setToken={setToken} />
+              </Route>
             <Route path="/FoodDeals">
               <FoodDeals />
+            </Route>
+            <Route path="/Restaurants">
+              <Restaurants data={location} />
             </Route>
             <Route path="/SearchRes">
               <SearchResults />
@@ -64,7 +94,7 @@ function App() {
       </Router>
     </div>
   );
-}
+}}
 
 function Navbar(props) {
   return (

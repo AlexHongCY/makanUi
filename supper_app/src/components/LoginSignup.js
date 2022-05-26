@@ -26,7 +26,7 @@ import PropTypes from 'prop-types';
 // export default LoginSignup;
 
 async function loginUser(credentials) {
-  return fetch("https://gentle-fortress-35413.herokuapp.com/api/auth/signup", {
+  return fetch("http://localhost:5000/login/signup", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
