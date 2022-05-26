@@ -26,7 +26,7 @@ import PropTypes from 'prop-types';
 // export default LoginSignup;
 
 async function loginUser(credentials) {
-  return fetch("http://localhost:5000/login/signup", {
+  return fetch("https://supper-makan-apa.herokuapp.com/login/signup", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

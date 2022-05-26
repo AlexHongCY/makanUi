@@ -44,9 +44,9 @@ function App() {
 
   if(!token) {
     
-  
+    <LoginSignup  setToken={setToken} />
 
-
+  }
 
   return (
     <div>
@@ -94,7 +94,7 @@ function App() {
       </Router>
     </div>
   );
-}}
+}
 
 function Navbar(props) {
   return (
