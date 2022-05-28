@@ -26,14 +26,16 @@ import PropTypes from 'prop-types';
 // export default LoginSignup;
 
 async function loginUser(credentials) {
-  return fetch("http://localhost:5000/login/signup", {
+  return fetch("https://supper-makan-apa.herokuapp.com/login/signup", {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: JSON.stringify(credentials)
   })
     .then(data => data.json())
+    // .then(history.push("/login/signup"))
 }
 
 const LoginSignup = (setToken) => {
@@ -50,6 +52,8 @@ const LoginSignup = (setToken) => {
       password
     });
     setToken(token);
+    //e.target.reset();
+
   }
 
 //     try {
@@ -96,6 +100,7 @@ const LoginSignup = (setToken) => {
         />
         <button type="submit">Submit</button>
       </form>
+
     </h4>
   );
 };
