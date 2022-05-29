@@ -43,57 +43,53 @@ function App() {
   const {token, setToken} = useToken();
 
   if(!token) {
-    
-    <LoginSignup  setToken={setToken} />
-
-  }
-
-  return (
-    <div>
-      <Navbar>
-        <NavItem icon={<UserIcon />} />
-        <NavItem icon={<CaretIcon />}>
-          <DropDownMenu></DropDownMenu>
-        </NavItem>
-      </Navbar>
-      <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
-      <Router>
-      <h2>
-          <Link to="/Login" className="links">
-            Login
-          </Link>
-        </h2>
+    return (
+      <div>
+        <Navbar>
+          <NavItem icon={<UserIcon />} />
+          <NavItem icon={<CaretIcon />}>
+            <DropDownMenu></DropDownMenu>
+          </NavItem>
+        </Navbar>
+        <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
+        <Router>
         <h2>
-          <Link to="/FoodDeals" className="links">
-            Food Deals
-          </Link>
-        </h2>
-        <h2>
-          <Link to="/Restaurants" className="links">
-            Restaurants
-          </Link>
-        </h2>
+            <Link to="/Login" className="links">
+              Login
+            </Link>
+          </h2>
+          <h2>
+            <Link to="/FoodDeals" className="links">
+              Food Deals
+            </Link>
+          </h2>
+          <h2>
+            <Link to="/Restaurants" className="links">
+              Restaurants
+            </Link>
+          </h2>
 
 
-        <div className="content">
-          <Switch>
-            <Route path="/Login">
-              <LoginSignup  setToken={setToken} />
+          <div className="content">
+            <Switch>
+              <Route path="/Login">
+                <LoginSignup  setToken={setToken} />
+                </Route>
+              <Route path="/FoodDeals">
+                <FoodDeals />
               </Route>
-            <Route path="/FoodDeals">
-              <FoodDeals />
-            </Route>
-            <Route path="/Restaurants">
-              <Restaurants data={location} />
-            </Route>
-            <Route path="/SearchRes">
-              <SearchResults />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
-  );
+              <Route path="/Restaurants">
+                <Restaurants data={location} />
+              </Route>
+              <Route path="/SearchRes">
+                <SearchResults />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 function Navbar(props) {

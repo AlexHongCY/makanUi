@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
+//import { useHistory } from 'react-router-dom';
 //import axios from "axios";
 
 // function LoginSignup() {
@@ -25,7 +26,15 @@ import PropTypes from 'prop-types';
 
 // export default LoginSignup;
 
-async function loginUser(credentials) {
+
+const LoginSignup = (setToken) => {
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  //let history = useHistory();
+
+async function register(credentials) {
+  
   return fetch("https://supper-makan-apa.herokuapp.com/login/signup", {
     method: 'POST',
     headers: {
@@ -35,24 +44,22 @@ async function loginUser(credentials) {
     body: JSON.stringify(credentials)
   })
     .then(data => data.json())
-    // .then(history.push("/login/signup"))
-}
-
-const LoginSignup = (setToken) => {
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
+  //   .then((result) => {
+  //     if(result.status === "Success")
+  //       history.push("/");
+  //   }
+  // )
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser({
+    const token = await register({
       username,
       email,
       password
     });
     setToken(token);
-    //e.target.reset();
+    //history.push("/");
 
   }
 
@@ -98,7 +105,7 @@ const LoginSignup = (setToken) => {
           placeholder="enter a password"
           onChange={e => setPassword(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button type="button" onClick={handleSubmit}>Submit</button>
       </form>
 
     </h4>
