@@ -20,6 +20,7 @@ import LoginSignup from "./components/LoginSignup";
 import useToken from "./components/App/useToken";
 import API from "./screens/API";
 import Restaurants from "./components/locationAll";
+import SearchForm from "./components/SearchForm";
 
 
 
@@ -53,7 +54,12 @@ function App() {
         </Navbar>
         <img src={require("./Assets/Logo.png")} className="logo" alt="Logo" />
         <Router>
-        <h2>
+          <h2>
+            <Link to="/SearchForm" className="links">
+              SearchForm
+            </Link>
+          </h2>
+          <h2>
             <Link to="/Login" className="links">
               Login
             </Link>
@@ -68,8 +74,6 @@ function App() {
               Restaurants
             </Link>
           </h2>
-
-
           <div className="content">
             <Switch>
               <Route path="/Login">
@@ -80,6 +84,9 @@ function App() {
               </Route>
               <Route path="/Restaurants">
                 <Restaurants data={location} />
+              </Route>
+              <Route path="/SearchForm">
+                <SearchForm />
               </Route>
               <Route path="/SearchRes">
                 <SearchResults />

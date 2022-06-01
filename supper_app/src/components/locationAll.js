@@ -63,7 +63,6 @@ const Restaurants = ({ data }) => {
                   <td>{a.name}</td>
                   <td>{a.address}</td>
                   <td>{a.located_at}</td>
-                  <br />
                 </tr>
               );
             })}
