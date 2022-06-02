@@ -141,7 +141,7 @@ h3 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-div {
+/* div {
   background: linear-gradient(rgba(78, 51, 115, 0.45), rgba(78, 51, 115, 0.45)),
     url("./Assets/Bg.jpg");
   background-position: center;
@@ -149,7 +149,7 @@ div {
   background-repeat: no-repeat;
   width: auto;
   height: 1500px;
-}
+} */
 
 ul {
   list-style: none;
